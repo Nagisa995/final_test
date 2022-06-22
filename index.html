@@ -4,10 +4,149 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Project LFM</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="header">
+      <span class="title">Home</span>
+      <button class="authorization">Login</button>
+    </header>
+
+    <div class="mainContent">
+      <div class="functional">
+        <h1>Фильтры:</h1>
+        <button>Сбросить все фильтры</button>
+        <div class="filterSelect">
+          <span>Сортировать по:</span>
+          <select size="1">
+            <option value="">Популярные по убыванию</option>
+            <option value="">Популярные по возрастанию</option>
+          </select>
+          <span>Год релиза:</span>
+          <select size="1">
+            <option value="">2019</option>
+            <option value="">2020</option>
+          </select>
+        </div>
+        <ul class="filterGуnres">
+          <li>
+            <input type="checkbox" value="боевик">боевик
+          </li>
+          <li>
+            <input type="checkbox" value="приключения">приключения
+          </li>
+          <li>
+            <input type="checkbox" value="мультфильм">мультфильм
+          </li>
+        </ul>
+        <div class="switchBlock">
+          <button>Назад</button>
+          <button>Вперед</button>
+          <span>1 of xxx</span>
+        </div>
+      </div>
+      <div class="filmList">
+        <ul class="filmList_content">
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+          <li class="filmList_item">
+            <img class="poster" src="https://www.film.ru/sites/default/files/movies/posters/49637343-1491517.jpg" alt="loading ...">
+            <div class="filmList_itemContent">
+              <div class="filmInfo">
+                <span>Рейтинг:8.4</span>
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU" alt="">
+                <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU" alt="">
+              </div>
+              <div class="filmName">
+                Истребитель демонов: Поезд «Бесконечный»
+              </div>
+              <div class="filmDetails">
+                Подробнее
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
