@@ -23,22 +23,29 @@ export interface IConditionsSort {
   [key: string]: string;
 }
 
+export enum ConditionsData {
+  POPULARITY_DOWN = 'POPULARITY_DOWN',
+  POPULARITY_UP = 'POPULARITY_UP',
+  VOTE_AVERAGE_DOWN = 'VOTE_AVERAGE_DOWN',
+  VOTE_AVERAGE_UP = 'VOTE_AVERAGE_UP',
+}
+
 export const SORTFILTERSDATA: ISortFilterParams = {
   conditions: [
     {
-      value: 'popularity down',
+      value: ConditionsData.POPULARITY_DOWN,
       displayOnUI: 'Популярные по убыванию',
     },
     {
-      value: 'popularity up',
+      value: ConditionsData.POPULARITY_UP,
       displayOnUI: 'Популярные по возрастанию',
     },
     {
-      value: 'vote_average down',
+      value: ConditionsData.VOTE_AVERAGE_DOWN,
       displayOnUI: 'Рейтинг по убыванию',
     },
     {
-      value: 'vote_average up',
+      value: ConditionsData.VOTE_AVERAGE_UP,
       displayOnUI: 'Рейтинг по возрастанию',
     },
   ],
@@ -46,6 +53,8 @@ export const SORTFILTERSDATA: ISortFilterParams = {
 };
 
 export const DEFAULTSORTFILTERS: IConditionsSort = {
-  conditions: 'popularity down',
+  conditions: ConditionsData.POPULARITY_DOWN,
   dateRelease: '2020',
 };
+
+export const DEFAULTGENREFILTER: Array<number> = [];

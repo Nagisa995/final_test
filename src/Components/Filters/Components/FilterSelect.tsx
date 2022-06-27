@@ -1,11 +1,9 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { IConditionsSort, SORTFILTERSDATA } from '../../../helpers/const';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { CONDITIONS_CHANGE, DATE_RELEASE_CHANGE } from '../../../store/actions/sortChange';
 
 export const FilterSelect: FC = () => {
-  const currentSortFilter = useTypedSelector((state) => state.sortFilter);
   const dispatch = useDispatch();
 
   const conditionsFilter = SORTFILTERSDATA.conditions.map((element) => (

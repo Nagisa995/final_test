@@ -1,14 +1,19 @@
 import { FC } from 'react';
 import { FILMS, IFilmData } from '../../mock/film';
-import { compilePosterURL, filmsOnCurrentPage, sortedFilmList } from '../../helpers/utils';
+import { compilePosterURL, filmsOnCurrentPage, filterFilmByGenre, sortedFilmList } from '../../helpers/utils';
 import { ICONFILMCARDURL } from '../../helpers/const';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export const FilmList: FC = () => {
-  const { currentPage, sortFilter } = useTypedSelector((state) => state);
-  const sortFilmList = filmsOnCurrentPage(sortedFilmList(FILMS, sortFilter), currentPage);
-  console.log(sortedFilmList(FILMS, sortFilter))
-  const films = sortFilmList.map((element) => <FilmCard key={element.id} info={element} />);
+  const { currentPage, sortFilter, genreFilter } = useTypedSelector((state) => state);
+
+  const filteredFilmList = filterFilmByGenre(FILMS, genreFilter);
+  const resortedFilmList = sortedFilmList(filteredFilmList, sortFilter);
+  const filmListOnCurrentPage = filmsOnCurrentPage(resortedFilmList, currentPage);
+
+  const films = filmListOnCurrentPage.map((element) => (
+    <FilmCard key={element.id} info={element} />
+  ));
   return (
     <div className="filmList">
       <ul className="filmList_content">{films}</ul>
