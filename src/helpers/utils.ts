@@ -1,10 +1,14 @@
+import Cookies from 'js-cookie';
 import { IFilmData } from '../mock/film';
+import { ActionAutorization } from '../store/actions/authorizationChange';
 import {
   ConditionsData,
+  cookieAuthorization,
   DEFAULTGENREFILTER,
   FILMSP_PER_PAGE,
   IConditionsSort,
   POSTERBASEURL,
+  USER_DATA,
 } from './const';
 
 export function compilePosterURL(urlPart: string): string {
@@ -64,4 +68,21 @@ function compareGenre(filmGenreList: Array<number>, genreFilter: Array<number>):
     }
   }
   return true;
+}
+
+export function userVerification(name: string, password: string): boolean {
+  const verificationPass: boolean =
+    name === USER_DATA.userName && password === USER_DATA.userPassword;
+  return verificationPass;
+}
+
+export function userAuthorizationState(): ActionAutorization {
+  const isUserAuthorized: boolean = Boolean(Cookies.get(cookieAuthorization.cookieName));
+  return isUserAuthorized
+    ? ActionAutorization.AUTHORIZATION_PASS
+    : ActionAutorization.NOT_AUTHORIZED;
+}
+
+export function userIsAuthorized(state: string): boolean {
+  return state === ActionAutorization.AUTHORIZATION_PASS;
 }

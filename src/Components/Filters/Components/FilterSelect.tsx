@@ -1,10 +1,14 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
-import { IConditionsSort, SORTFILTERSDATA } from '../../../helpers/const';
+import { IConditionsSort, SORTFILTERSDATA, USER_SELECTORS } from '../../../helpers/const';
+import { userIsAuthorized } from '../../../helpers/utils';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { CONDITIONS_CHANGE, DATE_RELEASE_CHANGE } from '../../../store/actions/sortChange';
 
 export const FilterSelect: FC = () => {
+  const authorizationState = useTypedSelector((state) => state.authorizationState);
   const dispatch = useDispatch();
+  const isAuthorizedUser: boolean = userIsAuthorized(authorizationState);
 
   const conditionsFilter = SORTFILTERSDATA.conditions.map((element) => (
     <OptionElement
@@ -16,6 +20,14 @@ export const FilterSelect: FC = () => {
 
   const dateReleaseFilter = SORTFILTERSDATA.dateRelease.map((element) => (
     <OptionElement key={element} displayOnUI={element} value={element} />
+  ));
+
+  const userFilter = USER_SELECTORS.map((element) => (
+    <OptionElement
+      key={element.displayOnUI}
+      displayOnUI={element.displayOnUI}
+      value={element.value}
+    />
   ));
 
   const conditionsHandler = (e: any) => {
@@ -30,15 +42,41 @@ export const FilterSelect: FC = () => {
 
   return (
     <div className="filterSelect">
-      <span>Сортировать по:</span>
-      <select size={1} onChange={conditionsHandler}>
-        {conditionsFilter}
-      </select>
-      <span>Год релиза:</span>
-      <select size={1} onChange={dateReleaseHandler}>
-        {dateReleaseFilter}
-      </select>
+      <SelectElement
+        selectName="Сортировать по:"
+        handler={conditionsHandler}
+        options={conditionsFilter}
+      />
+      <SelectElement
+        selectName="Год релиза:"
+        handler={dateReleaseHandler}
+        options={dateReleaseFilter}
+      />
+      {isAuthorizedUser && (
+        <SelectElement
+          selectName="Пользовательский список:"
+          handler={() => {}}
+          options={userFilter}
+        />
+      )}
     </div>
+  );
+};
+
+interface ISelectElement {
+  selectName: string;
+  handler: (e: any) => void;
+  options: ReactNode;
+}
+
+const SelectElement: FC<ISelectElement> = ({ selectName, handler, options }) => {
+  return (
+    <>
+      <span>{selectName}</span>
+      <select size={1} onChange={handler}>
+        {options}
+      </select>
+    </>
   );
 };
 

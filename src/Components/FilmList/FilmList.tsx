@@ -1,11 +1,39 @@
 import { FC } from 'react';
 import { FILMS, IFilmData } from '../../mock/film';
-import { compilePosterURL, filmsOnCurrentPage, filterFilmByGenre, sortedFilmList } from '../../helpers/utils';
+import {
+  compilePosterURL,
+  filmsOnCurrentPage,
+  filterFilmByGenre,
+  sortedFilmList,
+  userIsAuthorized,
+} from '../../helpers/utils';
 import { ICONFILMCARDURL } from '../../helpers/const';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useDispatch } from 'react-redux';
+import { AUTORIZATION_IN_PROGRESS } from '../../store/actions/authorizationChange';
 
 export const FilmList: FC = () => {
-  const { currentPage, sortFilter, genreFilter } = useTypedSelector((state) => state);
+  const { currentPage, sortFilter, genreFilter, authorizationState } = useTypedSelector(
+    (state) => state
+  );
+  const dispatch = useDispatch();
+  const isAuthorizedUser = userIsAuthorized(authorizationState);
+
+  const userFunctional = (e: any) => {
+    const isNotIconClick: boolean = !(
+      e.target.id === ICONFILMCARDURL.favorite.id || e.target.id === ICONFILMCARDURL.watchLater.id
+    );
+
+    if (isNotIconClick) {
+      return;
+    }
+
+    isAuthorizedUser
+      ? (e: any) => {
+          console.log(e);
+        }
+      : dispatch(AUTORIZATION_IN_PROGRESS());
+  };
 
   const filteredFilmList = filterFilmByGenre(FILMS, genreFilter);
   const resortedFilmList = sortedFilmList(filteredFilmList, sortFilter);
@@ -16,7 +44,9 @@ export const FilmList: FC = () => {
   ));
   return (
     <div className="filmList">
-      <ul className="filmList_content">{films}</ul>
+      <ul className="filmList_content" onClick={userFunctional}>
+        {films}
+      </ul>
     </div>
   );
 };
@@ -24,6 +54,7 @@ export const FilmList: FC = () => {
 interface IFilmCard {
   info: IFilmData;
 }
+
 export const FilmCard: FC<IFilmCard> = ({ info }) => {
   return (
     <li className="filmList_item" id={info.id.toString()}>
@@ -35,12 +66,21 @@ export const FilmCard: FC<IFilmCard> = ({ info }) => {
       <div className="filmList_itemContent">
         <div className="filmInfo">
           <span>Рейтинг:{info.vote_average}</span>
-          <img className="icon" src={ICONFILMCARDURL.favorite} alt="" />
-          <img className="icon" src={ICONFILMCARDURL.watchLater} alt="" />
+          <IconIMG src={ICONFILMCARDURL.favorite.src} id={ICONFILMCARDURL.favorite.id} />
+          <IconIMG src={ICONFILMCARDURL.watchLater.src} id={ICONFILMCARDURL.watchLater.id} />
         </div>
         <div className="filmName">{info.title}</div>
         <div className="filmDetails">Подробнее</div>
       </div>
     </li>
   );
+};
+
+interface IIcon {
+  src: string;
+  id: string;
+}
+
+const IconIMG: FC<IIcon> = ({ src, id }) => {
+  return <img className="icon" src={src} alt="" id={id} />;
 };

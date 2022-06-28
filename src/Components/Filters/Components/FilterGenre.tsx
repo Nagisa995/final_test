@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { GENREFILTERS, IGenreFilter } from '../../../mock/genreFilter';
+import { GENREFILTERS, IGenreFilter } from '../../../helpers/genreFilter';
 import { GENRE_FILTER_CHANGE } from '../../../store/actions/genreChange';
 
 export const FilterGenre: FC = () => {
