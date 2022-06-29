@@ -4,6 +4,7 @@ import { IConditionsSort, SORTFILTERSDATA, USER_SELECTORS } from '../../../helpe
 import { userIsAuthorized } from '../../../helpers/utils';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { CONDITIONS_CHANGE, DATE_RELEASE_CHANGE } from '../../../store/actions/sortChange';
+import { USER_FILTER_CHANGE } from '../../../store/actions/userFilterChange';
 
 export const FilterSelect: FC = () => {
   const authorizationState = useTypedSelector((state) => state.authorizationState);
@@ -40,6 +41,11 @@ export const FilterSelect: FC = () => {
     dispatch(DATE_RELEASE_CHANGE(value));
   };
 
+  const userFilterHandler = (e: any) => {
+    const value = e.target.value;
+    dispatch(USER_FILTER_CHANGE(value));
+  };
+
   return (
     <div className="filterSelect">
       <SelectElement
@@ -55,7 +61,7 @@ export const FilterSelect: FC = () => {
       {isAuthorizedUser && (
         <SelectElement
           selectName="Пользовательский список:"
-          handler={() => {}}
+          handler={userFilterHandler}
           options={userFilter}
         />
       )}

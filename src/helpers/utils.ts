@@ -8,6 +8,7 @@ import {
   FILMSP_PER_PAGE,
   IConditionsSort,
   POSTERBASEURL,
+  userSelector,
   USER_DATA,
 } from './const';
 
@@ -85,4 +86,49 @@ export function userAuthorizationState(): ActionAutorization {
 
 export function userIsAuthorized(state: string): boolean {
   return state === ActionAutorization.AUTHORIZATION_PASS;
+}
+
+export function filterFilmByUserFilter(
+  films: Array<IFilmData>,
+  userFilter: userSelector
+): Array<IFilmData> {
+  try {
+    const userFilmList = JSON.parse(localStorage.getItem(userFilter) ?? '[]');
+    const isEmptyFilter: boolean = userFilter === userSelector.DISABLE_USER_FILTER;
+
+    if (isEmptyFilter) {
+      return films;
+    }
+
+    return films.filter((element) => userFilmList.includes(element.id));
+  } catch (error) {
+    return films;
+  }
+}
+
+export function addInUserFilmList(e: any, iconID: string): void {
+  const filmID: number = Number(e.target.alt);
+  const isFavoritesList: boolean = iconID === userSelector.FAVORITES;
+  if (isFavoritesList) {
+    storageList(userSelector.FAVORITES, filmID);
+  } else {
+    storageList(userSelector.WATCH_LATER, filmID);
+  }
+}
+
+function storageList(storage: string, filmID: number): void {
+  try {
+    const filmListInStorage: Array<number> = JSON.parse(localStorage.getItem(storage) ?? '[]');
+    const isFilmOnList = filmListInStorage.includes(filmID);
+    if (isFilmOnList) {
+      localStorage.setItem(
+        storage,
+        JSON.stringify(filmListInStorage.filter((element) => element !== filmID))
+      );
+      return;
+    }
+    localStorage.setItem(storage, JSON.stringify([...filmListInStorage, filmID]));
+  } catch (error) {
+    return;
+  }
 }

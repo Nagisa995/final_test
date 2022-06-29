@@ -12,14 +12,20 @@ interface IIconUrl {
   watchLater: IURLData;
 }
 
+export enum userSelector {
+  DISABLE_USER_FILTER = 'DISABLE_USER_FILTER',
+  FAVORITES = 'FAVORITES',
+  WATCH_LATER = 'WATCH_LATER',
+}
+
 export const ICONFILMCARDURL: IIconUrl = {
   favorite: {
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mkCYRz0Q8nG1uNzJGTjSjfupNaX-1164h6gR8hXE5Sp_i06HTqOjm7ZG4dme4o7qKQA&usqp=CAU',
-    id: 'favorite',
+    id: userSelector.FAVORITES,
   },
   watchLater: {
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfKC_HA16TPtg80sHMVks36WaxO8Lv07Md2thrji2sCQoq_tqp9auEVxwHCLXKyzMIsHg&usqp=CAU',
-    id: 'watchLater',
+    id: userSelector.WATCH_LATER,
   },
 };
 
@@ -91,12 +97,6 @@ export const cookieAuthorization: ICookieAuthorizationInfo = {
 interface ISelectFilterInfo {
   value: string;
   displayOnUI: string;
-}
-
-enum userSelector {
-  DISABLE_USER_FILTER = 'DISABLE_USER_FILTER',
-  FAVORITES = 'FAVORITES',
-  WATCH_LATER = 'WATCH_LATER',
 }
 
 export const USER_SELECTORS: Array<ISelectFilterInfo> = [
