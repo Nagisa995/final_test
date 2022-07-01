@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { FILMS, IFilmData } from '../../mock/film';
+import { FILMS, IFilmData } from '../../../../mock/film';
 import {
   addInUserFilmList,
   compilePosterURL,
@@ -8,11 +8,13 @@ import {
   filterFilmByUserFilter,
   sortedFilmList,
   userIsAuthorized,
-} from '../../helpers/utils';
-import { ICONFILMCARDURL } from '../../helpers/const';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+  generateFilmURL,
+} from '../../../../helpers/utils';
+import { ICONFILMCARDURL } from '../../../../helpers/const';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { AUTORIZATION_IN_PROGRESS } from '../../store/actions/authorizationChange';
+import { AUTORIZATION_IN_PROGRESS } from '../../../../store/actions/authorizationChange';
+import { Link } from 'react-router-dom';
 
 export const FilmList: FC = () => {
   const { currentPage, sortFilter, genreFilter, authorizationState, userSortFilter } =
@@ -82,7 +84,9 @@ export const FilmCard: FC<IFilmCard> = ({ info }) => {
           />
         </div>
         <div className="filmName">{info.title}</div>
-        <div className="filmDetails">Подробнее</div>
+        <Link to={generateFilmURL(info.id)} className="filmDetails">
+          Подробнее
+        </Link>
       </div>
     </li>
   );

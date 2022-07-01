@@ -1,10 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
-import { IConditionsSort, SORTFILTERSDATA, USER_SELECTORS } from '../../../helpers/const';
-import { userIsAuthorized } from '../../../helpers/utils';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { CONDITIONS_CHANGE, DATE_RELEASE_CHANGE } from '../../../store/actions/sortChange';
-import { USER_FILTER_CHANGE } from '../../../store/actions/userFilterChange';
+import { IConditionsSort, SORTFILTERSDATA, USER_SELECTORS } from '../../../../../helpers/const';
+import { userIsAuthorized } from '../../../../../helpers/utils';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { CONDITIONS_CHANGE, DATE_RELEASE_CHANGE } from '../../../../../store/actions/sortChange';
+import { USER_FILTER_CHANGE } from '../../../../../store/actions/userFilterChange';
 
 export const FilterSelect: FC = () => {
   const authorizationState = useTypedSelector((state) => state.authorizationState);

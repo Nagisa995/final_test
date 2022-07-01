@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import {
   AUTORIZATION_IN_PROGRESS,
@@ -13,12 +14,18 @@ export const Header: FC = () => {
 
   const userNotAuthorized: boolean = authorizationState === ActionAutorization.NOT_AUTHORIZED;
   return (
-    <header className="header">
-      <span className="title">Home</span>
-      {(userNotAuthorized && (
-        <Button text="Вход" handler={() => dispatch(AUTORIZATION_IN_PROGRESS())} />
-      )) || <Button text="Выход" handler={() => dispatch(NOT_AUTHORIZED())} />}
-    </header>
+    <>
+      <header className="header">
+        <Link to="/">
+          <span className="title">Home</span>
+        </Link>
+
+        {(userNotAuthorized && (
+          <Button text="Вход" handler={() => dispatch(AUTORIZATION_IN_PROGRESS())} />
+        )) || <Button text="Выход" handler={() => dispatch(NOT_AUTHORIZED())} />}
+      </header>
+      <Outlet />
+    </>
   );
 };
 

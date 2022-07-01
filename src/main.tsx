@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './Components/App';
 import { store } from './store/store';
+import './css/style.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store = {store}>

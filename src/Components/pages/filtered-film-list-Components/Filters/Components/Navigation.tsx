@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { NEXT_PAGE, PREVIOUS_PAGE } from '../../../store/actions/pageChange';
-import { FILMS } from '../../../mock/film';
-import { FILMSP_PER_PAGE } from '../../../helpers/const';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { NEXT_PAGE, PREVIOUS_PAGE } from '../../../../../store/actions/pageChange';
+import { FILMS } from '../../../../../mock/film';
+import { FILMSP_PER_PAGE } from '../../../../../helpers/const';
 
 export const Navigation: FC = () => {
   const dispacth = useDispatch();

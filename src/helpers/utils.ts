@@ -11,6 +11,7 @@ import {
   userSelector,
   USER_DATA,
 } from './const';
+import { GENREFILTERS } from './genreFilter';
 
 export function compilePosterURL(urlPart: string): string {
   return POSTERBASEURL + urlPart;
@@ -131,4 +132,17 @@ function storageList(storage: string, filmID: number): void {
   } catch (error) {
     return;
   }
+}
+
+export function getGenreList(genreIDList: Array<number>) {
+  const genreList = GENREFILTERS.filter((element) => genreIDList.includes(element.id)).map(
+    (element) => {
+      return element.name;
+    }
+  );
+  return genreList.toString();
+}
+
+export function generateFilmURL(id: number): string {
+  return `details/${id}`;
 }

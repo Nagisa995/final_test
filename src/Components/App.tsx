@@ -1,23 +1,29 @@
 import { FC } from 'react';
-import { Header } from './Header/Header';
-import { Filters } from './Filters/Filters';
-import { FilmList } from './FilmList/FilmList';
-import { AuthorizationWindow } from './AuthorizationWindow/AuthorizationWindow';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { ActionAutorization } from '../store/actions/authorizationChange';
+import { Header } from './layout/Header';
+import { Route, Routes } from 'react-router-dom';
+import { FilteredFilmList } from './pages/FilteredFilmList';
+import { FilmPage } from './pages/FilmCard';
+import { FILMS } from '../mock/film';
+import { generateFilmURL } from '../helpers/utils';
+import { Search } from './pages/Search';
 
 export const App: FC = () => {
-  const authorizationState = useTypedSelector(state=>state.authorizationState);
-
-  const authorizationInProgress:boolean = authorizationState === ActionAutorization.AUTHORIZATION_IN_PROGRESS;
+  const infoPage = FILMS.map((element) => (
+    <Route
+      path={generateFilmURL(element.id)}
+      element={<FilmPage info={element} />}
+      key={element.id}
+    />
+  ));
   return (
     <>
-      <Header />
-      <div className="mainContent">
-        <Filters />
-        <FilmList />
-        {authorizationInProgress&&<AuthorizationWindow/>}
-      </div>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<FilteredFilmList />} />
+          {infoPage}
+          <Route path="search" element={<Search />} />
+        </Route>
+      </Routes>
     </>
   );
 };
