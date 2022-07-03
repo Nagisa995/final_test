@@ -57,7 +57,7 @@ export const FilmList: FC = () => {
   );
 };
 
-interface IFilmCard {
+export interface IFilmCard {
   info: IFilmData;
 }
 

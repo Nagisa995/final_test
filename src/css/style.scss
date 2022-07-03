@@ -105,6 +105,12 @@ h6 {
   align-items: center;
   margin-bottom: 20px;
 
+  .search {
+    background-color: #f70035;
+    color: white;
+    padding: 6px;
+  }
+
   a,
   a:visited {
     outline: none;
@@ -326,4 +332,94 @@ h6 {
   }
 }
 
-.searchContent{}
+.searchPage {
+  .searchContent {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 16px;
+
+    .gradeFilter {
+      margin: 15px 0;
+    }
+
+    .popularityFilter {
+      margin: 15px 0;
+    }
+
+    .buttonBar {
+      display: flex;
+      justify-content: center;
+
+      button {
+        padding: 30px;
+        background-color: aquamarine;
+        border-radius: 50%;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .searchResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+
+    .filmCard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 1 30%;
+      margin-bottom: 30px;
+
+      .info {
+        flex: 0 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+
+        .title {
+          font-size: 21px;
+          font-weight: 700;
+          padding: 15px;
+        }
+
+        .overview {
+          padding-top: 20px;
+          line-height: 20px;
+        }
+      }
+
+      img {
+        max-height: 400px;
+        margin: 0 25px;
+      }
+    }
+
+    .actionBar {
+      display: flex;
+      justify-content: space-around;
+
+      a,
+      a:visited {
+        outline: none;
+        color: rgb(16, 36, 78);
+      }
+
+      button {
+        width: 180px;
+        height: 100px;
+        font-size: 25px;
+        font-weight: 700;
+        background-color: rgb(141, 223, 74);
+        color: rgb(16, 36, 78);
+      }
+    }
+  }
+}

@@ -17,7 +17,11 @@ export const Header: FC = () => {
     <>
       <header className="header">
         <Link to="/">
-          <span className="title">Home</span>
+          <span>Home</span>
+        </Link>
+
+        <Link to="/search">
+          <span className="search">Search</span>
         </Link>
 
         {(userNotAuthorized && (

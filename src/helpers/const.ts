@@ -113,3 +113,25 @@ export const USER_SELECTORS: Array<ISelectFilterInfo> = [
     displayOnUI: 'Смотреть позже',
   },
 ];
+
+export enum secondSearchParametr {
+  HIGH_GRADE = 'HIGH_GRADE',
+  LOW_GRADE = 'LOW_GRADE',
+}
+
+export enum thirdSearchParametr {
+  POPULAR = 'POPULAR',
+  UNKNOWN = 'UNKNOWN',
+}
+
+export interface IDefaultSearchPage {
+  genre: Array<number>;
+  grade: secondSearchParametr;
+  popularity: thirdSearchParametr;
+}
+
+export const defaultSearchPageFilter: IDefaultSearchPage = {
+  genre: [],
+  grade: secondSearchParametr.HIGH_GRADE,
+  popularity: thirdSearchParametr.POPULAR,
+};

@@ -49,11 +49,16 @@ function compareDate(release: string, date: string): boolean {
   return releaseYear === +date;
 }
 
+export function compareData(checkedValue: Array<number>, comparedValue: Array<number>) {
+  const compareResult: boolean = JSON.stringify(checkedValue) === JSON.stringify(comparedValue);
+  return compareResult;
+}
+
 export function filterFilmByGenre(
   films: Array<IFilmData>,
   genreFilter: Array<number>
 ): Array<IFilmData> {
-  const isEmptyFilter: boolean = JSON.stringify(genreFilter) === JSON.stringify(DEFAULTGENREFILTER);
+  const isEmptyFilter: boolean = compareData(genreFilter, DEFAULTGENREFILTER);
 
   if (isEmptyFilter) {
     return films;
