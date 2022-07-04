@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { secondSearchParametr } from '../../../helpers/const';
 import { RadioButton } from './radioButton';
+import { secondSearchParametr } from './types/enum';
 import { IFilter } from './types/interface';
 
 export const GradeFilter: FC<IFilter> = ({ searchFilter, pageStateHandler }) => {

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { thirdSearchParametr } from '../../../helpers/const';
 import { RadioButton } from './radioButton';
+import { thirdSearchParametr } from './types/enum';
 import { IFilter } from './types/interface';
 
 export const PopularityFilter: FC<IFilter> = ({ searchFilter, pageStateHandler }) => {

@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { Header } from './layout/Header';
+import { Header } from './layout/header';
 import { Route, Routes } from 'react-router-dom';
-import { FilteredFilmList } from './pages/FilteredFilmList';
-import { FilmPage } from './pages/FilmCard';
+import { FilteredFilmList } from './pages/filteredFilmList';
+import { FilmPage } from './pages/filmCard';
 import { FILMS } from '../mock/film';
 import { generateFilmURL } from '../helpers/utils';
-import { Search } from './pages/Search';
+import { Search } from './pages/search';
 
 export const App: FC = () => {
   const infoPage = FILMS.map((element) => (

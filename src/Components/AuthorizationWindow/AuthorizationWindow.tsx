@@ -1,7 +1,7 @@
 import { FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { userVerification } from '../../helpers/utils';
 import { AUTHORIZATION_PASS } from '../../store/actions/authorizationChange';
+import { userVerification } from './utils';
 
 export const AuthorizationWindow: FC = () => {
   const [userName, setUserName] = useState('');

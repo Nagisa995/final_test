@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { GENREFILTERS } from '../../../helpers/genreFilter';
-import { GenreCard } from '../filtered-film-list-Components/Filters/Components/FilterGenre';
+import { GenreCard } from '../filtered-film-list-Components/Filters/Components/filterGenre';
 import { IFilter } from './types/interface';
 
 export const GenreFilter: FC<IFilter> = ({ searchFilter, pageStateHandler }) => {

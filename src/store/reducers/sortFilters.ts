@@ -1,4 +1,4 @@
-import { DEFAULTSORTFILTERS } from '../../helpers/const';
+import { DEFAULTSORTFILTERS } from '../../Components/pages/filtered-film-list-Components/helpers/const';
 import { ActionSort } from '../actions/sortChange';
 
 interface ISwitchSortFilters {

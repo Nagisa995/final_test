@@ -1,10 +1,6 @@
 import { FC } from 'react';
 import { compilePosterURL, getGenreList } from '../../helpers/utils';
-import { IFilmData } from '../../mock/film';
-
-interface IFilmPage {
-  info: IFilmData;
-}
+import { IFilmPage } from '../../types/interface';
 
 export const FilmPage: FC<IFilmPage> = ({ info }) => {
   const genreList = getGenreList(info.genre_ids);

@@ -1,20 +1,20 @@
 import { FC } from 'react';
-import { FILMS, IFilmData } from '../../../../mock/film';
-import {
-  addInUserFilmList,
-  compilePosterURL,
-  filmsOnCurrentPage,
-  filterFilmByGenre,
-  filterFilmByUserFilter,
-  sortedFilmList,
-  userIsAuthorized,
-  generateFilmURL,
-} from '../../../../helpers/utils';
-import { ICONFILMCARDURL } from '../../../../helpers/const';
+import { FILMS } from '../../../../mock/film';
+import { compilePosterURL, filterFilmByGenre, generateFilmURL } from '../../../../helpers/utils';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { AUTORIZATION_IN_PROGRESS } from '../../../../store/actions/authorizationChange';
 import { Link } from 'react-router-dom';
+import { IIcon } from '../types/interface';
+import {
+  addInUserFilmList,
+  filmsOnCurrentPage,
+  filterFilmByUserFilter,
+  sortedFilmList,
+  userIsAuthorized,
+} from '../helpers/utils';
+import { ICONFILMCARDURL } from '../helpers/const';
+import { IFilmPage } from '../../../../types/interface';
 
 export const FilmList: FC = () => {
   const { currentPage, sortFilter, genreFilter, authorizationState, userSortFilter } =
@@ -57,11 +57,7 @@ export const FilmList: FC = () => {
   );
 };
 
-export interface IFilmCard {
-  info: IFilmData;
-}
-
-export const FilmCard: FC<IFilmCard> = ({ info }) => {
+export const FilmCard: FC<IFilmPage> = ({ info }) => {
   return (
     <li className="filmList_item">
       <img
@@ -91,12 +87,6 @@ export const FilmCard: FC<IFilmCard> = ({ info }) => {
     </li>
   );
 };
-
-interface IIcon {
-  src: string;
-  id: string;
-  name: string;
-}
 
 const IconIMG: FC<IIcon> = ({ src, id, name }) => {
   return <img className="icon" src={src} alt={name} id={id} />;

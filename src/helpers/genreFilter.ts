@@ -1,7 +1,4 @@
-export interface IGenreFilter {
-  id: number;
-  name: string;
-}
+import { IGenreFilter } from '../types/interface';
 
 export const GENREFILTERS: Array<IGenreFilter> = [
   {

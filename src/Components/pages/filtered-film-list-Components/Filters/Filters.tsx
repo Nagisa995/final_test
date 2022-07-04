@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { FilterSelect } from './Components/FilterSelect';
-import { FilterGenre } from './Components/FilterGenre';
-import { Navigation } from './Components/Navigation';
+import { FilterSelect } from './Components/filterSelect';
+import { FilterGenre } from './Components/filterGenre';
+import { Navigation } from './Components/navigation';
 import { useDispatch } from 'react-redux';
 import { RESET_CHANGE } from '../../../../store/actions/sortChange';
 import { RESET_GENRE_FILTER } from '../../../../store/actions/genreChange';
-import { DEFAULTGENREFILTER } from '../../../../helpers/const';
 import { RESET_USER_FILTER_CHANGE } from '../../../../store/actions/userFilterChange';
+import { DEFAULTGENREFILTER } from '../../../../helpers/const';
 
 export const Filters: FC = () => {
   const dispatch = useDispatch();

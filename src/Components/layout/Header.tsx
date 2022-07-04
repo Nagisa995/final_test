@@ -7,10 +7,15 @@ import {
   ActionAutorization,
   NOT_AUTHORIZED,
 } from '../../store/actions/authorizationChange';
+import { AuthorizationWindow } from '../AuthorizationWindow/authorizationWindow';
+import { IButton } from './interface';
 
 export const Header: FC = () => {
   const authorizationState = useTypedSelector((state) => state.authorizationState);
   const dispatch = useDispatch();
+
+  const authorizationInProgress: boolean =
+    authorizationState === ActionAutorization.AUTHORIZATION_IN_PROGRESS;
 
   const userNotAuthorized: boolean = authorizationState === ActionAutorization.NOT_AUTHORIZED;
   return (
@@ -27,20 +32,17 @@ export const Header: FC = () => {
         {(userNotAuthorized && (
           <Button text="Вход" handler={() => dispatch(AUTORIZATION_IN_PROGRESS())} />
         )) || <Button text="Выход" handler={() => dispatch(NOT_AUTHORIZED())} />}
+
+        {authorizationInProgress && <AuthorizationWindow />}
       </header>
       <Outlet />
     </>
   );
 };
 
-interface IButton {
-  text: string;
-  handler: () => void;
-}
-
 const Button: FC<IButton> = ({ text, handler }) => {
   return (
-    <button className="authorization" onClick={handler}>
+    <button className="authorizationButton" onClick={handler}>
       {text}
     </button>
   );

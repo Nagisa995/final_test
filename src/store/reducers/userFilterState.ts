@@ -1,4 +1,4 @@
-import { userSelector } from '../../helpers/const';
+import { userSelector } from '../../Components/pages/filtered-film-list-Components/types/enum';
 import { UserSort } from '../actions/userFilterChange';
 
 interface ISwitchUserSortFilters {

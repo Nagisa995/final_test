@@ -1,10 +1,7 @@
-import {
-  IDefaultSearchPage,
-  secondSearchParametr,
-  thirdSearchParametr,
-} from '../../../../helpers/const';
 import { filterFilmByGenre } from '../../../../helpers/utils';
-import { IFilmData } from '../../../../mock/film';
+import { IFilmData } from '../../../../types/interface';
+import { secondSearchParametr, thirdSearchParametr } from '../types/enum';
+import { IDefaultSearchPage } from '../types/interface';
 
 export function compareGrade(value: number, filter: string): boolean {
   if (filter === secondSearchParametr.HIGH_GRADE) {

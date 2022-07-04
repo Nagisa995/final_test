@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { GENREFILTERS, IGenreFilter } from '../../../../../helpers/genreFilter';
+import { GENREFILTERS } from '../../../../../helpers/genreFilter';
 import { GENRE_FILTER_CHANGE } from '../../../../../store/actions/genreChange';
+import { IGenreCard } from '../../../../../types/interface';
 
 export const FilterGenre: FC = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,6 @@ export const FilterGenre: FC = () => {
     </ul>
   );
 };
-
-interface IGenreCard {
-  info: IGenreFilter;
-}
 
 export const GenreCard: FC<IGenreCard> = ({ info }) => {
   return (

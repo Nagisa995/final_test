@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { compilePosterURL, generateFilmURL, getGenreList } from '../../../helpers/utils';
 import { FILMS } from '../../../mock/film';
-import { IFilmCard } from '../filtered-film-list-Components/FilmList/FilmList';
 import { filterFilmList } from './helpers/utils';
 import { IFilmList } from './types/interface';
 import { Link } from 'react-router-dom';
+import { IFilmPage } from '../../../types/interface';
 
 export const SearchResult: FC<IFilmList> = ({ filters }) => {
   const [currentFilmCard, setCurrentFilmCard] = useState(0);
@@ -29,7 +29,7 @@ export const SearchResult: FC<IFilmList> = ({ filters }) => {
   );
 };
 
-const FilmCard: FC<IFilmCard> = ({ info }) => {
+const FilmCard: FC<IFilmPage> = ({ info }) => {
   const genreList = getGenreList(info.genre_ids);
   return (
     <div className="filmCard">

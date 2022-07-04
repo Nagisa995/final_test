@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import { defaultSearchPageFilter } from '../../helpers/const';
 import { compareData } from '../../helpers/utils';
 import { GenreFilter } from './search-Components/genreFilter';
 import { GradeFilter } from './search-Components/gradeFilter';
+import { defaultSearchPageFilter } from './search-Components/helpers/const';
 import { PopularityFilter } from './search-Components/popularityFilter';
 import { SearchResult } from './search-Components/searchResult';
 import { searchStatus } from './search-Components/types/enum';
@@ -30,7 +30,7 @@ export const Search: FC = () => {
             pageStateHandler={setFiltersForSearch}
             searchFilter={filtersForSearch}
           />
-          <div className='buttonBar'>
+          <div className="buttonBar">
             <button onClick={searchStartHandler}>Search</button>
           </div>
         </div>

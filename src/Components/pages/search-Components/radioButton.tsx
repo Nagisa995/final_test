@@ -1,11 +1,5 @@
 import { FC } from 'react';
-
-interface IRadio {
-  nameRadio: string;
-  value: string;
-  nameUI: string;
-  selected: boolean;
-}
+import { IRadio } from './types/interface';
 
 export const RadioButton: FC<IRadio> = ({ nameRadio, value, nameUI, selected }) => {
   return (
