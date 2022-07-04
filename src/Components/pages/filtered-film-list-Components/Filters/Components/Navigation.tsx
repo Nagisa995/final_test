@@ -11,7 +11,7 @@ export const Navigation: FC = () => {
   const endPage: number = Math.ceil(FILMS.length / FILMSP_PER_PAGE);
 
   const isStarterPage: boolean = currentPage === 0;
-  const isEndPage: boolean = (currentPage+1) === endPage;
+  const isEndPage: boolean = currentPage + 1 === endPage;
   return (
     <div className="switchBlock">
       {isStarterPage ? (
@@ -19,9 +19,15 @@ export const Navigation: FC = () => {
       ) : (
         <button onClick={() => dispacth(PREVIOUS_PAGE())}>Назад</button>
       )}
-      {isEndPage? <button disabled>Вперед</button>:<button onClick={() => dispacth(NEXT_PAGE())}>Вперед</button>}
-      
-      <span>{currentPage + 1} of {endPage}</span>
+      {isEndPage ? (
+        <button disabled>Вперед</button>
+      ) : (
+        <button onClick={() => dispacth(NEXT_PAGE())}>Вперед</button>
+      )}
+
+      <span>
+        {currentPage + 1} of {endPage}
+      </span>
     </div>
   );
 };

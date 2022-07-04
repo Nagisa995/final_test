@@ -7,7 +7,6 @@ export interface ISelectElement {
   options: ReactNode;
 }
 
-
 export interface IIcon {
   src: string;
   id: string;

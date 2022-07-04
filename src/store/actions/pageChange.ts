@@ -2,9 +2,9 @@ interface IActionPage {
   type: string;
 }
 
-export enum ActionPage{
-    NEXT_PAGE = 'NEXT_PAGE',
-    PREVIOUS_PAGE = 'PREVIOUS_PAGE'
+export enum ActionPage {
+  NEXT_PAGE = 'NEXT_PAGE',
+  PREVIOUS_PAGE = 'PREVIOUS_PAGE',
 }
 
 const createAction = (type: string) => {

@@ -1,5 +1,10 @@
 import { ConditionsData, userSelector } from '../types/enum';
-import { IConditionsSort, IIconUrl, ISelectFilterInfo, ISortFilterParams } from '../types/interface';
+import {
+  IConditionsSort,
+  IIconUrl,
+  ISelectFilterInfo,
+  ISortFilterParams,
+} from '../types/interface';
 
 export const ICONFILMCARDURL: IIconUrl = {
   favorite: {

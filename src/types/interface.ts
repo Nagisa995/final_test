@@ -3,11 +3,6 @@ export interface ICookieAuthorizationInfo {
   cookieValue: string;
 }
 
-export interface IGenreFilter {
-  id: number;
-  name: string;
-}
-
 export interface IFilmData {
   adult: boolean;
   backdrop_path: string | null;
@@ -25,10 +20,15 @@ export interface IFilmData {
   vote_count: number;
 }
 
-export interface IGenreCard {
-  info: IGenreFilter;
-}
-
 export interface IFilmPage {
   info: IFilmData;
+}
+
+export interface IGenreFilter {
+  id: number;
+  name: string;
+}
+
+export interface IGenreCard {
+  info: IGenreFilter;
 }

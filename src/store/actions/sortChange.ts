@@ -10,10 +10,10 @@ export enum ActionSort {
 }
 
 const createAction = (type: string) => {
-  return (payload:string): IActionSort => {
+  return (payload: string): IActionSort => {
     return {
       type,
-      payload
+      payload,
     };
   };
 };
